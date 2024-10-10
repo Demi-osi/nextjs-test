@@ -1,0 +1,19 @@
+name: Next.js CI
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+    paths:
+      - "devops_next/**"
+      
+jobs:
+  build-next-app:
+    name: Build Next.js App
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./devops_next
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.1
